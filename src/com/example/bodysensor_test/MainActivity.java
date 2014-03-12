@@ -182,7 +182,7 @@ public class MainActivity extends Activity
         			avgFrightData += it.next().floatValue();
         		}
         		avgFrightData = avgFrightData / frightData.size();
-        		float score = avgFrightData - avgCalmData;
+        		float score = 10*(avgFrightData - avgCalmData);
         		tvTest.setText(Float.toString(score));
         		Log.i(TAG, "SCORE: "+score);
         		calmData.clear();
@@ -318,6 +318,12 @@ public class MainActivity extends Activity
                 if(splitString.length != 7) break;
                 try {
                 	Float EDA = Float.valueOf(Float.parseFloat(new String(splitString[6])));
+                	/*
+                	for (int i = 0;i<7;i++){
+                	Log.d("wtest",splitString[i]);
+                	}
+                	Log.d("wtest","--------------------");
+                	*/
                     switch(DATA_STATE) {
                     case MainActivity.DATA_STATE_CALM:
                     	calmData.add(EDA);
